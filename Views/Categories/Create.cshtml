@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Category
+
+@{
+    ViewData["Title"] = "Add a new category";
+}
+
+
+<style>
+    .previewBox {
+        width: 150px;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1 class="text-center">Add a new category</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group text-center">
+
+                        <img class="previewBox" id="IconPreview" />
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Icon" class="control-label">Icon URL</label>
+                        <input asp-for="Icon" class="form-control" />
+                        <span asp-validation-for="Icon" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="Description" class="control-label">Category Name</label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-5">
+                        <input type="submit" value="Create" class="btn btn-outline-success" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('IconPreview');
+            output.src = $("#Icon").val();
+        })
+        $("#Icon").on("change", function () {
+            var output = document.getElementById('IconPreview');
+            output.src = $(this).val();
+
+        })
+    </script>
+}

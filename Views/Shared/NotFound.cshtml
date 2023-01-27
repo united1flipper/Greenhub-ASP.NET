@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewData["Title"] = "Not found";
+}
+<style>
+    .image {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: 0.7;
+    }
+</style>
+<div class="text-center">
+    <p class="navbar-brand">Ups... Sorry, we cannot find what you're looking for.</p>
+    <a class="btn btn-link" asp-area="" asp-controller="Home" asp-action="Index">Go back to Homepage</a>
+
+</div>
+<img class="image" src="/images/plant.svg" alt="plant in the pot" />

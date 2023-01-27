@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Plant
+
+@{
+    ViewData["Title"] = "Update Plant";
+}
+
+
+<style>
+    .previewBox {
+        width: 150px;
+        border-radius: 50%;
+    }
+    textarea {
+        height: 300px;
+    }
+</style>
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1 class="text-center">Update Plant</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group text-center">
+
+                        <img class="previewBox" id="ImagePreview" />
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageURL" class="control-label">Image URL</label>
+                        <input asp-for="ImageURL" class="form-control" />
+                        <span asp-validation-for="ImageURL" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="Name" class="control-label">Plant Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="Description" class="control-label">Description</label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="Price" class="control-label">Price</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="Quantity" class="control-label">Quantity</label>
+                        <input asp-for="Quantity" class="form-control" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label asp-for="Plants_Categories" class="control-label">Category</label>
+                        <select asp-for="Plants_Categories" class="form-control"></select>
+                        <span asp-validation-for="Plants_Categories" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-5">
+                        <input type="submit" value="Update" class="btn btn-outline-success" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ImagePreview');
+            output.src = $("#ImageURL").val();
+        })
+        $("#ImageURL").on("change", function () {
+            var output = document.getElementById('ImagePreview');
+            output.src = $(this).val();
+
+        })
+    </script>
+}

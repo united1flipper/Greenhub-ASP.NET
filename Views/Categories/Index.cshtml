@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "List of Categories";
+}
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    .addBtn {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+    }
+
+    .icon {
+        max-width: 20px;
+    }
+</style>
+
+<div class="row justify-content-center">
+
+    <div class="col-auto">
+        <table class="table-bordered text-center table table-responsive">
+            <thread>
+
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Icon)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>Actions</th>
+                </tr>
+            </thread>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            <img class="icon" src="@item.Icon" alt="@item.Description" />
+                        </td>
+
+                        <td class="align-middle">@Html.DisplayFor(modelItem => item.Description)</td>
+
+                        <td class="align-middle">
+                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="addBtn">
+
+    <a asp-action="Create" asp-controller="Categories" class="btn btn-outline-info"><i class="bi bi-plus"></i> Add new</a>
+</div>

@@ -1,0 +1,31 @@
+﻿@model Plant
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    .image {
+        max-width: 100%;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-8 col-md-6 col-xl-4 offset-sm-2 offset-md-3 offset-xl-4">
+        <div class="card bg-light mb-3">
+            <h4 class="card-header">@Model.Name</h4>
+            <div class="card-body">
+                <img class="image" src="@Model.ImageURL" alt="@Model.Name" />
+                <p class="card-text">@Model.Description</p>
+                <p class="card-text mt-2">Categories:</p>
+                @foreach (var category in Model.Plants_Categories)
+                {
+                    <div class="d-flex">
+                        <img src="@category.Category.Icon" alt="@category.Category.Description" />
+                        <p class="card-text">@category.Category.Description</p>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

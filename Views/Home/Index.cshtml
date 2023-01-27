@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    #main-container {
+        background-image: url("https://images.unsplash.com/photo-1526565782131-a13074f0dbbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: auto 100%;
+    }
+
+    @@media only screen and (max-width: 970px) {
+        #main-container {
+            background-position: center;
+        }
+}
+
+    .main-text-box {
+        display: flex;
+        align-items: center;
+        height: 50vh;
+        margin: 0 50px;
+    }
+
+    .mainpage-text {
+        text-transform: capitalize;
+    }
+    @@media only screen and (max-width: 970px) {
+        .main-text-box {
+            justify-content: center;
+        }
+    }
+
+    h1, p {
+        font-family: 'Playfair Display', serif;
+    }
+
+
+
+</style>
+    <div class="main-text-box">
+        <div class="mainpage-text">
+            <h1> Welcome on Greenhub</h1>
+            <p>Find your dream plant</p>
+            <a class="btn btn-success" asp-controller="Plants" asp-action="Index"><i class="bi bi-card-plus"></i>SHOP NOW</a>
+        </div>
+</div>
